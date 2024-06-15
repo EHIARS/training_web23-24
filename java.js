@@ -11,10 +11,15 @@ function add_data(product){
         <h3 class="product-name">${product.name}</h3>
         <p class="product-discription">${product.short_disc}</p>
         <h4 class="price">Rp ${product.price}</h4>
-        <p class="product-oldprice"><del>${product.old_price ? product,old_price : ""}</del></p>
-        <div class="product-hover">
-
+        <p class="product-oldprice"><del>${product.old_price ? product.old_price : ""}</del></p>
+        <div class="product-hover-unity">
+            <button id="add-to-cart">Add to cart</button>
         </div>
     </div>`;
-    
+    const para = document.createElement("p");
+    const node = document.createTextNode("This is new.");
+    para.appendChild(node);
+
+    const element = document.getElementById("Our-Products");
+    element.appendChild(para);
 }
