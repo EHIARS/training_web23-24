@@ -1,4 +1,22 @@
-function add_data(product){
+var product = null;
+    var fetched = false;
+    var numProduct = 0;
+    var id = 0;
+//}
+    async function getProduct(){
+        if (fetched){
+            return JSON.parse(sessionStorage.getItem("products"));
+        }
+        product = await fetch("https://dummyjson.com/products");
+        product = await product.json();
+        sessionStorage.setItem("products",JSON.stringify(product));
+        console.log(product);
+        displayProduct.textContent = "Got product";
+        fetched = true;
+}
+
+function add_data(product,ham){
+    ham;
     if (product.tag){
         product.tag = capitaliFirstLetter(product.tag)
     }
@@ -23,3 +41,4 @@ function add_data(product){
     const element = document.getElementById("Our-Products");
     element.appendChild(para);
 }
+add_data(product,getProduct);

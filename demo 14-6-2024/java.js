@@ -1,45 +1,60 @@
-/*function rangeRNG(min, max) {
+function rangeRNG(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 function textColorChange() {
     this.changeColorText.style.color = 'rgb(' + this.rangeRNG(0,255) + ',' + this.rangeRNG(0,255) + ',' + this.rangeRNG(0,255) + ')';
 }
-class container  {
+//class container  {
     //getProduct = getProduct.bind();
     //clearProduct = clearProduct.bind();
     //displayProduct = displayProduct.bind();
 
-    getButton = document.getElementById("get-product-button");
-    clearButton = document.getElementById("clear-product-button");
-    displayResult = document.getElementById("get-clear-product-result");
-    displayButton = document.getElementById("display-button");
-    displayProductText = document.getElementById("display-product-text");
+    const getButton = document.getElementById("get-product-button");
+    const clearButton = document.getElementById("clear-product-button");
+    const constdisplayResult = document.getElementById("get-clear-product-result");
+    const displayButton = document.getElementById("display-button");
+    const displayProductText = document.getElementById("display-product-text");
 
-    product = null;
-    fetched = false;
-    numProduct = 0;
-    id = 0;
-}
+    var product = null;
+    var fetched = false;
+    var numProduct = 0;
+    var id = 0;
+//}
     async function getProduct(){
-        if (container.fetched){
+        if (fetched){
             return JSON.parse(sessionStorage.getItem("products"));
         }
-        container.product = await fetch("https://dummyjson.com/products");
-        container.product = await product.json();
+        product = await fetch("https://dummyjson.com/products");
+        product = await product.json();
         sessionStorage.setItem("products",JSON.stringify(product));
-        console.log(container.product);
-        container.displayProduct.textContent = "Got product";
-        container.fetched = true;
+        console.log(product);
+        displayProduct.textContent = "Got product";
+        fetched = true;
 }
-
+ function displayProduct() {
+        if (!this.fetched) {
+            this.displayProductText.textContent = "No product to display";
+            return;
+        }
+        let currentProduct = this.product[this.id];
+        this.displayProductText.innerHTML = `id = ${currentProduct.id} <br>
+title : ${currentProduct.title} <br>
+description : ${currentProduct.description} <br>
+category : ${currentProduct.category} <br>
+price : ${currentProduct.price} <br>
+ranking : ${currentProduct.ranking} <br>
+stock: ${currentProduct.stock} <br>
+`;
+        this.id = (this.id + 1) % this.numProduct;
+    }
 //addEvent = {
-this.getButton.addEventListener("onclick",getProduct());
-    //getButton.addEventListener("click",() => setTimeout(getProduct,2000));
+//this.getButton.addEventListener("onclick",getProduct());
+getButton.addEventListener("click",() => setTimeout(getProduct,2000));
     //clearButton.addEventListener("click",this.clearProduct);
-    //displayButton.addEventListener("click",this.displayProduct);
+displayButton.addEventListener("click",this.displayProduct);
 
 //}
-*/
+/*
 class colorChangeDemo {
     constructor() {
         this.textColorChange = this.textColorChange.bind(this);
@@ -141,3 +156,4 @@ stock: ${currentProduct.stock} <br>
 let colorChangeClass = new colorChangeDemo();
 let ajaxClass = new ajaxDemo(); ajaxClass.addEvent();
 let callbackClass = new callbackDemo();
+*/
