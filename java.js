@@ -7,7 +7,7 @@ var product = null;
         if (fetched){
             return JSON.parse(sessionStorage.getItem("products"));
         }
-        product = await fetch("https://dummyjson.com/products");
+        product = await fetch("https://dummyapi-0uzr.onrender.com/products");
         product = await product.json();
         sessionStorage.setItem("products",JSON.stringify(product));
         console.log(product);
