@@ -1,0 +1,29 @@
+.banner{
+    width: 100%;
+    #box-l-yellow{
+        position: absolute;
+        background-color: hsla(66, 84%, 83%, 0.993);
+        border: 1px;
+        border-color: black;
+        width: 44,65%;
+        
+    }
+    #banner-image{
+        margin-left: 0;
+        padding: 0;
+        /*width: device-width;*/
+        img{
+            border: 0;
+            padding: 0;
+        }
+    }
+    /*.hero-img{
+    background-image: url(banner.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: relative;
+    background-size: cover;
+    }*/
+}
+
+/*<meta name="viewport" content="width=device-width, initial-scale=1.0">*/
