@@ -1,0 +1,55 @@
+header{
+    margin:0%;
+    right: 0px;
+    left:0px;
+    display: grid;
+    grid-template-columns: 12;
+}
+header{
+    a{
+        text-decoration: none;
+        color: black;
+        text-align: center;
+    }
+    ul{
+        display: inline;
+        list-style-type: none;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        float: left;
+        padding: 10px;
+    }
+    #page_nav_list{
+        font-family: Poppins;
+    }
+}
+header{
+
+    #page-icon{
+        border: 1em;
+        border-color: aqua;
+        grid-column: 1/3;
+    }
+    #brand-name{
+        font-family: Poppins;
+        display: inline;
+    }
+    #logo_image{
+        display: inline;
+    }
+    #sup-nav{
+        display: inline;
+        grid-column: 10/12;
+        align-items: left;
+        font-size: 10px;
+    }
+    #header-button{
+        grid-column: 7/10;
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
