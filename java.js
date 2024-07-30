@@ -3,16 +3,16 @@ var product = null;
     var numProduct = 0;
     var id = 0;
 //}
-    async function getProduct(){
-        if (fetched){
-            return JSON.parse(sessionStorage.getItem("products"));
-        }
-        product = await fetch("https://dummyapi-0uzr.onrender.com/products");
-        product = await product.json();
-        sessionStorage.setItem("products",JSON.stringify(product));
-        console.log(product);
-        displayProduct.textContent = "Got product";
-        fetched = true;
+async function getProduct(){
+    if (fetched){
+        return JSON.parse(sessionStorage.getItem("products"));
+    }
+    product = await fetch("https://dummyapi-0uzr.onrender.com/products");
+    product = await product.json();
+    sessionStorage.setItem("products",JSON.stringify(product));
+    console.log(product);
+    displayProduct.textContent = "Got product";
+    fetched = true;
 }
 
 function add_data(product,ham){
