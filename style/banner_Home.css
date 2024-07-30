@@ -12,7 +12,7 @@
         margin-left: 0;
         padding: 0;
         /*width: device-width;*/
-        img{
+        & img{
             border: 0;
             padding: 0;
         }
